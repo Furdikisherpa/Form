@@ -2,12 +2,14 @@
 export default function Input({name, type, value,  handleInput}) {
 
   return (
-    <div className="border-b-2 border-b-black w-60 ">
+    <div>
        <input
             name={name}
             type={type}
-            value={value}
+            value={value || ""}
             onChange={handleInput}
+            className="w-80 border-b-2"
+           
           />
     </div>
   )
