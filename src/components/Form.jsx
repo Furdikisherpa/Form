@@ -20,22 +20,6 @@ export default function Form() {
       
     }
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log(inputs);
-
-      if(!inputs.name || !inputs.email || !inputs.subject || !inputs.textarea){
-        console.log ("please fill all fields");
-      }
-      else{
-        console.log("Form submitted succesfully!");
-      }
-
-    }
-    useEffect(() => {
-      // storing input name
-      localStorage.setItem("inputs", JSON.stringify(inputs));
-    }, [inputs]);
 
     const Label = {
         label1 : "FULL NAME :",
@@ -50,7 +34,7 @@ export default function Form() {
   return (
     <div className='justify-items-center mx-auto w-96 py-3 mt-10 border-2 bg-white drop-shadow-lg  inset-1 '>
       <Heading />
-      <form onSubmit={handleSubmit}  >
+      <form  >
       <LabelName label={label1}  /> <br />
       <Input name="name" type="text" value={inputs.name} handleInput={handleChange} defaultvalue={inputs.name}  /> <br />
       <LabelName label={label2} /> <br />
@@ -59,7 +43,7 @@ export default function Form() {
       <Input name="subject" type="text" value={inputs.subject} handleInput={handleChange} defaultvalue={inputs.subject}/> <br />
       <LabelName label={label4} /> <br />
       <TextArea name="textarea" value={inputs.textarea} handleTextarea={handleChange} defaultvalue={inputs.textarea}/> <br />
-      <SubmitButton />
+
      </form>
     </div>
   )
